@@ -7,14 +7,15 @@ import { handleAllowNotification } from './Config.js';
 function App() {
   const [token, setToken] = useState(null);
 
-  useEffect(() =>{
-    //console.log("handleAllowNotification");
-    handleAllowNotification(setToken);
-  }, [])
+  // useEffect(() =>{
+  //   //console.log("handleAllowNotification");
+  //   handleAllowNotification(setToken);
+  // }, [])
 
   return (
     <div>
       {token}
+      <button onClick={() => handleAllowNotification(setToken)}>알림받기</button>
     </div>
   );
 }

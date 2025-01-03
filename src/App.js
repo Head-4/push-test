@@ -1,21 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 import './Config.js';
-import React, { useEffect, useState } from 'react';
-import { handleAllowNotification } from './Config.js';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Notify from './Notify.jsx';
+import KakaoLogin from './KakaoLogin.jsx';
+import KakaoRedirect from './KakaoRedirect.jsx';
+
 
 function App() {
-  const [token, setToken] = useState(null);
-
-  // useEffect(() =>{
-  //   //console.log("handleAllowNotification");
-  //   handleAllowNotification(setToken);
-  // }, [])
-
   return (
     <div>
-      {token}
-      <button onClick={() => handleAllowNotification(setToken)}>알림받기</button>
+      <Router>
+        <Routes>
+          <Route path="/notify" element={<Notify/>}/>
+          <Route path="/" element={<KakaoLogin/>}/>
+          <Route path="/oauth" element={<KakaoRedirect/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }

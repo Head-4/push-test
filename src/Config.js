@@ -77,9 +77,13 @@ export async function handleAllowNotification(setToken) {
 
 onMessage(messaging, (payload) => {
     console.log("알림 도착 ", payload);
-    const notificationTitle = payload.notification.title;
+    const notification = payload.notification;
+    const notificationTitle = notification.title;
     const notificationOptions = {
-        body: payload.notification.body
+        title: notificationTitle,
+        body: notification.body,
+        badge: 'https://bucket-geeks.s3.ap-northeast-2.amazonaws.com/logo.svg',
+        icon: 'https://bucket-geeks.s3.ap-northeast-2.amazonaws.com/logo.svg'
     };
 
     if (Notification.permission === "granted") {

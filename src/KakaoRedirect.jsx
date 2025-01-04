@@ -11,7 +11,7 @@ function KakaoRedirect() {
     const [state, setState] = useState();
 
     useEffect(() => {
-        axios.post(`https://52.79.32.80:8080/api/v1/login/kakao/${code}`, null, {
+        axios.post(`https://server.alleyloss.click/api/v1/login/kakao/${code}`, null, {
             headers: header,
         })
             .then((response) => {

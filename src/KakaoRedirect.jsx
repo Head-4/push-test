@@ -11,32 +11,15 @@ function KakaoRedirect() {
     const [state, setState] = useState();
 
     useEffect(() => {
-        // async function fetchCode() {
-        //     try {
-        //         const res = await axios.post(`http://localhost:8080/api/v1/kakao/${code}`,
-        //             {
-        //                 headers: {
-        //                     "Content-Type": "application/x-www-form-urlencoded"
-        //                 }
-        //             }
-        //         )
-        //     } catch (err) {
-        //         console.error(err);
-        //     }
-        // }
-        fetch(`http://localhost:8080/api/v1/login/kakao/${code}`, {
-            method: "POST", // 
+        axios.post(`https://52.79.32.80:8080/api/v1/login/kakao/${code}`, null, {
             headers: header,
         })
             .then((response) => {
-                response.json()
-                alert(response.headers.get("Authorization"));
-            })
-            .then((data) => {
-                console.log(data);
+                console.log(response);
+                alert(response.headers['authorization']); // Authorization 헤더 값 출력
             })
             .catch((error) => {
-                console.error("오류 발생", error); //
+                console.error("오류 발생", error);
             });
     }, [])
 

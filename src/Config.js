@@ -82,8 +82,8 @@ onMessage(messaging, (payload) => {
     const notificationOptions = {
         title: notificationTitle,
         body: notification.body,
-        badge: 'https://bucket-geeks.s3.ap-northeast-2.amazonaws.com/logo.svg',
-        icon: 'https://bucket-geeks.s3.ap-northeast-2.amazonaws.com/logo.svg'
+        badge: 'bell.jpg',
+        icon: 'bell.jpg'
     };
 
     if (Notification.permission === "granted") {

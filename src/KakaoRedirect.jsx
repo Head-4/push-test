@@ -8,6 +8,7 @@ function KakaoRedirect() {
     const header = {
         "Content-Type": "application/x-www-form-urlencoded",
     };
+    const [state, setState] = useState();
 
     useEffect(() => {
         // async function fetchCode() {
@@ -27,7 +28,10 @@ function KakaoRedirect() {
             method: "POST", // 
             headers: header,
         })
-            .then((response) => response.json())
+            .then((response) => {
+                response.json()
+                alert(response.headers.get("Authorization"));
+            })
             .then((data) => {
                 console.log(data);
             })
